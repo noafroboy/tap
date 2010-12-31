@@ -1,0 +1,15 @@
+development: &default
+  adapter: mysql
+  database: tap_development
+  username: root
+  password:
+  host: localhost
+  encoding: utf8
+
+test: &test
+  <<: *default
+  database: tap_test
+
+
+cucumber:
+  <<: *test
