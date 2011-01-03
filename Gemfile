@@ -2,7 +2,6 @@ source :rubygems
 
 gem "rails", ">= 3.0.3"
 gem "rack"
-gem "clearance", "0.9.1"
 gem "haml"
 gem "high_voltage"
 gem "hoptoad_notifier"
@@ -14,6 +13,7 @@ gem "formtastic"
 gem "mysql"
 gem "flutie"
 gem "dynamic_form"
+gem "authlogic"
 
 # http://blog.davidchelimsky.net/2010/07/11/rspec-rails-2-generators-and-rake-tasks/
 group :development, :test do

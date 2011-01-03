@@ -1,6 +1,15 @@
-Tap::Application.routes.draw do
-  root :to => 'Clearance::Sessions#new'
+Tap::Application.routes.draw do |map|
+  # resource :user_session
+  # root :controller => "user_sessions", :action => "new" # optional, this just sets the root route
 
+  resources :users
+  
+  get    'login'  => 'user_sessions#new',     :as => :login
+  post   'login'  => 'user_sessions#create',  :as => :login
+  delete 'logout' => 'user_sessions#destroy', :as => :logout
+
+  root :to => 'user_sessions#new' # login page
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
