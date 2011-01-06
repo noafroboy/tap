@@ -7,9 +7,6 @@
           %li= msg
 
   .field
-    = f.label :name
-    = f.text_field :name
-  .field
     = f.label :email
     = f.text_field :email
   .field
@@ -18,5 +15,83 @@
   .field
     = f.label :password_confirmation
     = f.password_field :password_confirmation
+  .field
+    = f.label :first_name
+    = f.text_field :first_name
+  .field
+    = f.label :middle_name
+    = f.text_field :middle_name
+  .field
+    = f.label :last_name
+    = f.text_field :last_name
+  .field
+    = f.label :gender
+    = f.text_field :gender
+  .field
+    = f.label :age_group
+    = f.text_field :age_group
+  .field
+    = f.label :cellphone_number
+    = f.text_field :password_confirmation
+  .field
+    = f.label :home_phone_number
+    = f.text_field :homephone_number
+  .field
+    = f.label :work_phone_number
+    = f.text_field :workphone_number
+  .field
+    = f.label :street_address
+    = f.text_field :street_address
+  .field
+    = f.label :city
+    = f.text_field :city
+  .field
+    = f.label :state
+    = f.text_field :state
+  .field
+    = f.label :zip_code
+    = f.text_field :zip_code
+  .field
+    = f.label :undergraduate_school
+    = f.text_field :undergrad_school
+  .field
+    = f.label :undergraduate_major
+    = f.text_field :undergrad_major
+  .field
+    = f.label :graduate_school
+    = f.text_field :graduate_school
+  .field
+    = f.label :graduate_major
+    = f.text_field :graduate_major
+  .field
+    = f.label :other_degrees
+    = f.text_field :other_degrees
+  .field
+    = f.label :industry_field
+    = f.text_field :industry_field
+  .field
+    = f.label :company_name
+    = f.text_field :company_name
+  .field
+    = f.label "Title/Position/Job Function"
+    = f.text_field :title_position_function
+  .field
+    = f.label "Years of Experience"
+    = f.text_field :years_experience
+  .field
+    = f.label :areas_of_interest
+    = f.text_field :areas_of_interest
+  .field
+    = f.label :other_community_organizations
+    = f.text_field :other_community_organizations
+  .field
+    = f.label "Become a Mentor?"
+    = f.text_field :potential_mentor
+  .field
+    = f.label "Help at Career Panels/Job Workshops"
+    = f.text_field :help_at_workshops_panels
+  .field
+    = f.label "Want to be Locatable Via Directory?"
+    = f.text_field :opt_in_directory
   .actions
     = f.submit 'Save'
