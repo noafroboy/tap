@@ -5,9 +5,8 @@
       %ul
         - @user.errors.full_messages.each do |msg|
           %li= msg
-
   .field
-    = f.label :email
+    = f.label "email (this will be used for your login)"
     = f.text_field :email
   .field
     = f.label :password
@@ -26,10 +25,10 @@
     = f.text_field :last_name
   .field
     = f.label :gender
-    = f.text_field :gender
+    = f.select :gender, ["male", "female"]
   .field
     = f.label :age_group
-    = f.text_field :age_group
+    = f.select :age_group, ["18-21", "22-25", "26-30", "31-35", "36-40", "41+"]
   .field
     = f.label :cellphone_number
     = f.text_field :password_confirmation
@@ -67,31 +66,49 @@
     = f.label :other_degrees
     = f.text_field :other_degrees
   .field
-    = f.label :industry_field
+    = f.label "What Industry/Field are you in?"
     = f.text_field :industry_field
   .field
-    = f.label :company_name
+    = f.label "Name of Company you work for?"
     = f.text_field :company_name
   .field
-    = f.label "Title/Position/Job Function"
+    = f.label "What's your Title/Position/Job Function"
     = f.text_field :title_position_function
   .field
-    = f.label "Years of Experience"
-    = f.text_field :years_experience
+    = f.label "Years of Experience In Your Field"
+    = f.select :years_experience, ["0-2", "3-5", "6-8", "9+"]
   .field
-    = f.label :areas_of_interest
-    = f.text_field :areas_of_interest
+    = f.label "What areas of TAP are you interested in getting involved with?"
+    .areas-of-interest
+      %input{ :type=>"checkbox", :name => "Community Service", :value => 1 }Community Service
+    .areas-of-interest
+      %input{ :type=>"checkbox", :name => "Cultural", :value => 1 }Cultural
+    .areas-of-interest
+      %input{ :type=>"checkbox", :name => "Dinner Group", :value => 1 }Dinner Group
+    .areas-of-interest
+      %input{ :type=>"checkbox", :name => "Leadership", :value => 1 }Leadership
+    .areas-of-interest
+      %input{ :type=>"checkbox", :name => "Professional", :value => 1 }Professional
+    .areas-of-interest
+      %input{ :type=>"checkbox", :name => "Social", :value => 1 }Social
+    .areas-of-interest
+      %input{ :type=>"checkbox", :name => "Other", :value => 1 }Other:
+      .field
+        = f.text_field :areas_of_interest
   .field
-    = f.label :other_community_organizations
+    = f.label "What other community organizations are you a member of?"
     = f.text_field :other_community_organizations
   .field
-    = f.label "Become a Mentor?"
-    = f.text_field :potential_mentor
+    = f.label "Interested in becoming a mentor?"
+    = f.select :potential_mentor, ["Yes", "No"]
   .field
-    = f.label "Help at Career Panels/Job Workshops"
-    = f.text_field :help_at_workshops_panels
+    = f.label "Interested in becoming a mentee?"
+    = f.select :potential_mentee, ["Yes", "No"]
   .field
-    = f.label "Want to be Locatable Via Directory?"
-    = f.text_field :opt_in_directory
+    = f.label "Interested in helping with college workshops and career panels?"
+    = f.select :help_at_workshops_panels, ["Yes", "No"]
+  .field
+    = f.label "The following information will be included in the Networking Directory: Name, Email, Schools Attended, Work Industry, Company Name, and Postion. Do you want to be in the directory?"
+    = f.select :opt_in_directory, ["Yes, add me - I'd like to network with other TAP members!", "No - I do not wish to be included in the directory..."]
   .actions
     = f.submit 'Save'

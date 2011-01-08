@@ -22,7 +22,8 @@ class AddTapFieldsToUser < ActiveRecord::Migration
     add_column :users, :title_position_function, :string  
     add_column :users, :years_experience, :integer  
     add_column :users, :areas_of_interest, :string  
-    add_column :users, :other_community_organizations, :string  
+    add_column :users, :other_community_organizations, :string
+    add_column :users, :potential_mentee, :boolean
     add_column :users, :potential_mentor, :boolean  
     add_column :users, :help_at_workshops_panels, :boolean  
     add_column :users, :opt_in_directory, :boolean
@@ -52,6 +53,7 @@ class AddTapFieldsToUser < ActiveRecord::Migration
     remove_column :users, :years_experience
     remove_column :users, :areas_of_interest
     remove_column :users, :other_community_organizations
+    remove_column :users, :potential_mentee
     remove_column :users, :potential_mentor
     remove_column :users, :help_at_workshops_panels
     remove_column :users, :opt_in_directory
