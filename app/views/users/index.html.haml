@@ -9,7 +9,7 @@
 
   - @users.each do |user|
     %tr
-      %td= user.name
+      %td= user.first_name
       %td= link_to 'Show', user
       %td= link_to 'Edit', edit_user_path(user)
       %td= button_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete

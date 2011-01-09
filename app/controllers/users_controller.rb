@@ -42,8 +42,15 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.xml
   def create
-    @user = User.new(params[:user])
-
+    user_params = params[:user]
+    @user = User.new(user_params)
+    @user.zip_code = user_params["zip_code"] && user_params["zip_code"].to_i
+    @user.years_experience = user_params["years_experience"] && user_params["years_experience"].to_i
+    @user.potential_mentee = user_params["potential_mentee"].downcase.match("yes").nil? ? false : true
+    @user.potential_mentor = user_params["potential_mentor"].downcase.match("yes").nil? ? false : true
+    @user.help_at_workshops_panels = user_params["help_at_workshops_panels"].downcase.match("yes").nil? ? false : true
+    @user.opt_in_directory = user_params["opt_in_directory"].downcase.match("yes").nil? ? false : true
+    
     respond_to do |format|
       if @user.save
         format.html { redirect_to(@user, :notice => 'User was successfully created.') }
@@ -61,7 +68,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     respond_to do |format|
-      if @user.update_attributes(params[:user])
+      if @user.update_attributes(user_params)
         format.html { redirect_to(@user, :notice => 'User was successfully updated.') }
         format.xml  { head :ok }
       else

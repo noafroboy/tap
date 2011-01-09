@@ -31,7 +31,7 @@
     = f.select :age_group, ["18-21", "22-25", "26-30", "31-35", "36-40", "41+"]
   .field
     = f.label :cellphone_number
-    = f.text_field :password_confirmation
+    = f.text_field :cellphone_number
   .field
     = f.label :home_phone_number
     = f.text_field :homephone_number
@@ -80,21 +80,23 @@
   .field
     = f.label "What areas of TAP are you interested in getting involved with?"
     .areas-of-interest
-      %input{ :type=>"checkbox", :name => "Community Service", :value => 1 }Community Service
+      %input.interest#community-service{ :type=>"checkbox", :name => "Community Service", :value => 1 }Community Service
     .areas-of-interest
-      %input{ :type=>"checkbox", :name => "Cultural", :value => 1 }Cultural
+      %input.interest#cultural{ :type=>"checkbox", :name => "Cultural", :value => 1 }Cultural
     .areas-of-interest
-      %input{ :type=>"checkbox", :name => "Dinner Group", :value => 1 }Dinner Group
+      %input.interest#dinner-group{ :type=>"checkbox", :name => "Dinner Group", :value => 1 }Dinner Group
     .areas-of-interest
-      %input{ :type=>"checkbox", :name => "Leadership", :value => 1 }Leadership
+      %input.interest#leadership{ :type=>"checkbox", :name => "Leadership", :value => 1 }Leadership
     .areas-of-interest
-      %input{ :type=>"checkbox", :name => "Professional", :value => 1 }Professional
+      %input.interest#professional{ :type=>"checkbox", :name => "Professional", :value => 1 }Professional
     .areas-of-interest
-      %input{ :type=>"checkbox", :name => "Social", :value => 1 }Social
+      %input.interest#social{ :type=>"checkbox", :name => "Social", :value => 1 }Social
     .areas-of-interest
-      %input{ :type=>"checkbox", :name => "Other", :value => 1 }Other:
-      .field
-        = f.text_field :areas_of_interest
+      %input.interest#other{ :type=>"checkbox", :name => "Other", :value => 1 }Other:
+      %input.interest-text{ :type => "text", :name => "Areas of Interest"}
+  .field{ :style => "display: none"}
+    = f.label "areas of interest test"
+    = f.text_field :areas_of_interest
   .field
     = f.label "What other community organizations are you a member of?"
     = f.text_field :other_community_organizations
