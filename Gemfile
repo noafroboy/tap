@@ -23,6 +23,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'faker'
   gem "cucumber-rails"
   gem "factory_girl_rails"
   gem "bourne"
