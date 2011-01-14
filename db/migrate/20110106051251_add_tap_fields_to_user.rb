@@ -27,7 +27,6 @@ class AddTapFieldsToUser < ActiveRecord::Migration
     add_column :users, :potential_mentor, :boolean  
     add_column :users, :help_at_workshops_panels, :boolean  
     add_column :users, :opt_in_directory, :boolean
-    add_column :users, :is_admin, :boolean, :default => false
   end
 
   def self.down
@@ -58,6 +57,5 @@ class AddTapFieldsToUser < ActiveRecord::Migration
     remove_column :users, :potential_mentor
     remove_column :users, :help_at_workshops_panels
     remove_column :users, :opt_in_directory
-    remove_column :users, :is_admin
   end
 end

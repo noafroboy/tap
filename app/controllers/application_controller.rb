@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     end
     
     def logged_in_as_admin?
-      if defined?@current_user
+      if defined? @current_user
         return @current_user.is_admin
       end
       return false
