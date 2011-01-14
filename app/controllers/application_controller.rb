@@ -14,6 +14,13 @@ class ApplicationController < ActionController::Base
       @current_user = current_user_session && current_user_session.user
     end
     
+    def logged_in_as_admin?
+      if defined?@current_user
+        return @current_user.is_admin
+      end
+      return false
+    end
+    
     def require_user
       unless current_user
         store_location

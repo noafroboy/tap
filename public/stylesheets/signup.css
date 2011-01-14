@@ -1,7 +1,13 @@
 #signup-text {
   width: 740px;
-  margin: 0 auto; }
+  margin: 10px auto; }
 
 #new_user {
   width: 740px;
   margin: 0 auto; }
+  #new_user label {
+    display: inline; }
+  #new_user .field_with_errors {
+    display: inline; }
+  #new_user .red-asterisk {
+    color: red; }

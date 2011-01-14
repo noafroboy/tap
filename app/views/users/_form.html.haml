@@ -5,80 +5,93 @@
       %ul
         - @user.errors.full_messages.each do |msg|
           %li= msg
+  
   .field
-    = f.label "email (this will be used for your login)"
+    .label-container
+      = f.label "email"
+      %span.red-asterisk *(this will be used for your login)
     = f.text_field :email
   .field
-    = f.label :password
+    .label-container
+      = f.label "password"
+      %span.red-asterisk *
     = f.password_field :password
   .field
-    = f.label :password_confirmation
+    .label-container
+      = f.label "password confirmation"
+      %span.red-asterisk *
     = f.password_field :password_confirmation
   .field
-    = f.label :first_name
+    .label-container
+      = f.label "first name"
+      %span.red-asterisk *
     = f.text_field :first_name
   .field
-    = f.label :middle_name
+    .label-container= f.label :middle_name
     = f.text_field :middle_name
   .field
-    = f.label :last_name
+    .label-container
+      = f.label "last name"
+      %span.red-asterisk *
     = f.text_field :last_name
   .field
-    = f.label :gender
+    .label-container
+      = f.label "gender"
+      %span.red-asterisk *
     = f.select :gender, ["male", "female"]
   .field
-    = f.label :age_group
-    = f.select :age_group, ["18-21", "22-25", "26-30", "31-35", "36-40", "41+"]
+    .label-container= f.label :age_group
+    = f.select :age_group, ["", "18-21", "22-25", "26-30", "31-35", "36-40", "41+"]
   .field
-    = f.label :cellphone_number
+    .label-container= f.label :cellphone_number
     = f.text_field :cellphone_number
   .field
-    = f.label :home_phone_number
+    .label-container= f.label :home_phone_number
     = f.text_field :homephone_number
   .field
-    = f.label :work_phone_number
+    .label-container= f.label :work_phone_number
     = f.text_field :workphone_number
   .field
-    = f.label :street_address
+    .label-container= f.label :street_address
     = f.text_field :street_address
   .field
-    = f.label :city
+    .label-container= f.label :city
     = f.text_field :city
   .field
-    = f.label :state
+    .label-container= f.label :state
     = f.text_field :state
   .field
-    = f.label :zip_code
+    .label-container= f.label :zip_code
     = f.text_field :zip_code
   .field
-    = f.label :undergraduate_school
+    .label-container= f.label :undergraduate_school
     = f.text_field :undergrad_school
   .field
-    = f.label :undergraduate_major
+    .label-container= f.label :undergraduate_major
     = f.text_field :undergrad_major
   .field
-    = f.label :graduate_school
+    .label-container= f.label :graduate_school
     = f.text_field :graduate_school
   .field
-    = f.label :graduate_major
+    .label-container= f.label :graduate_major
     = f.text_field :graduate_major
   .field
-    = f.label :other_degrees
+    .label-container= f.label :other_degrees
     = f.text_field :other_degrees
   .field
-    = f.label "What Industry/Field are you in?"
+    .label-container= f.label "What Industry/Field are you in?"
     = f.text_field :industry_field
   .field
-    = f.label "Name of Company you work for?"
+    .label-container= f.label "Name of Company you work for?"
     = f.text_field :company_name
   .field
-    = f.label "What's your Title/Position/Job Function"
+    .label-container= f.label "What's your Title/Position/Job Function"
     = f.text_field :title_position_function
   .field
-    = f.label "Years of Experience In Your Field"
-    = f.select :years_experience, ["0-2", "3-5", "6-8", "9+"]
+    .label-container= f.label "Years of Experience In Your Field"
+    = f.select :years_experience, ["", "0-2", "3-5", "6-8", "9+"]
   .field
-    = f.label "What areas of TAP are you interested in getting involved with?"
+    .label-container= f.label "What areas of TAP are you interested in getting involved with?"
     .areas-of-interest
       %input.interest#community-service{ :type=>"checkbox", :name => "Community Service", :value => 1 }Community Service
     .areas-of-interest
@@ -95,22 +108,24 @@
       %input.interest#other{ :type=>"checkbox", :name => "Other", :value => 1 }Other:
       %input.interest-text{ :type => "text", :name => "Areas of Interest"}
   .field{ :style => "display: none"}
-    = f.label "areas of interest test"
+    .label-container= f.label "areas of interest test"
     = f.text_field :areas_of_interest
   .field
-    = f.label "What other community organizations are you a member of?"
+    .label-container= f.label "What other community organizations are you a member of?"
     = f.text_field :other_community_organizations
   .field
-    = f.label "Interested in becoming a mentor?"
-    = f.select :potential_mentor, ["Yes", "No"]
+    .label-container= f.label "Interested in becoming a mentor?"
+    = f.select :potential_mentor, ["", "Yes", "No"]
   .field
-    = f.label "Interested in becoming a mentee?"
-    = f.select :potential_mentee, ["Yes", "No"]
+    .label-container= f.label "Interested in becoming a mentee?"
+    = f.select :potential_mentee, ["", "Yes", "No"]
   .field
-    = f.label "Interested in helping with college workshops and career panels?"
-    = f.select :help_at_workshops_panels, ["Yes", "No"]
+    .label-container= f.label "Interested in helping with college workshops and career panels?"
+    = f.select :help_at_workshops_panels, ["", "Yes", "No"]
   .field
-    = f.label "The following information will be included in the Networking Directory: Name, Email, Schools Attended, Work Industry, Company Name, and Postion. Do you want to be in the directory?"
+    .label-container
+      = f.label "The following information will be included in the Networking Directory: Name, Email, Schools Attended, Work Industry, Company Name, and Postion. Do you want to be in the directory?"
+      %span.red-asterisk *
     = f.select :opt_in_directory, ["Yes, add me - I'd like to network with other TAP members!", "No - I do not wish to be included in the directory..."]
   .actions
     = f.submit 'Save'

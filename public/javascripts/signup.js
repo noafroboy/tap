@@ -1,8 +1,8 @@
 $(document).ready(function() {
   
-  var user_interests = ""
   $('#new_user').submit(function() {
     var interests = $("input[@class=interest]:checked");
+    var user_interests = ""
     
     $.each(interests, function(index, interest) {
       user_interests = user_interests + interest['name'] + ",";
@@ -14,8 +14,4 @@ $(document).ready(function() {
     return true
   });
   
-  inputField = $("<input type=text>")
-    .attr("name", "ooga")
-    .attr("value", "booga")
-    // $(document.body).append(inputField)
 });
