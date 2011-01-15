@@ -1,0 +1,12 @@
+body #container #edit-text {
+  width: 740px;
+  margin: 10px auto; }
+body #container .edit_user {
+  width: 740px;
+  margin: 0 auto; }
+  body #container .edit_user label {
+    display: inline; }
+  body #container .edit_user .field_with_errors {
+    display: inline; }
+  body #container .edit_user .red-asterisk {
+    color: red; }

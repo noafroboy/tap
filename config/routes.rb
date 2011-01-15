@@ -3,6 +3,7 @@ Tap::Application.routes.draw do |map|
   # root :controller => "user_sessions", :action => "new" # optional, this just sets the root route
 
   resources :users
+  resources :homes
   
   get    'login'  => 'user_sessions#new',     :as => :login
   post   'login'  => 'user_sessions#create',  :as => :login
