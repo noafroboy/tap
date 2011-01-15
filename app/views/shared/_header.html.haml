@@ -4,6 +4,8 @@
   #welcome
     %p
       - if current_user
+        Logged in as
+        = current_user.first_name
         = link_to 'Profile', edit_user_path(current_user)
         = link_to 'Logout', logout_path, :remote => true, :method => "DELETE", :id => "logout"
       - else
