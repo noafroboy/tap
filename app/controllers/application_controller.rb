@@ -21,6 +21,14 @@ class ApplicationController < ActionController::Base
       return false
     end
     
+    def require_admin
+      unless logged_in_as_admin?
+        flash[:notice] = "You must be an admin to view this page"
+        redirect_back_or_default(homes_path)
+        return false
+      end
+    end
+    
     def require_user
       unless current_user
         store_location

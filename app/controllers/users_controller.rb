@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :require_user, :except => [:new, :create]
+  before_filter :require_admin, :only => [:index]
 
   # GET /users
   # GET /users.xml
@@ -67,6 +68,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
+    user_params = params[:user]
     respond_to do |format|
       if @user.update_attributes(user_params)
         format.html { redirect_to(@user, :notice => 'User was successfully updated.') }
