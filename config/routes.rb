@@ -3,13 +3,13 @@ Tap::Application.routes.draw do |map|
   # root :controller => "user_sessions", :action => "new" # optional, this just sets the root route
 
   resources :users
-  resources :homes
+  resources :home
   
   get    'login'  => 'user_sessions#new',     :as => :login
   post   'login'  => 'user_sessions#create',  :as => :login
   delete 'logout' => 'user_sessions#destroy', :as => :logout
 
-  root :to => 'homes#index' 
+  root :to => 'home#index' 
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
