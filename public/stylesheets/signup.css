@@ -1,12 +1,10 @@
-body #container #signup-text {
-  width: 740px;
+body #container #content #signup-text {
   margin: 10px auto; }
-body #container .new_user {
-  width: 740px;
+body #container #content .new_user {
   margin: 0 auto; }
-  body #container .new_user label {
+  body #container #content .new_user label {
     display: inline; }
-  body #container .new_user .field_with_errors {
+  body #container #content .new_user .field_with_errors {
     display: inline; }
-  body #container .new_user .red-asterisk {
+  body #container #content .new_user .red-asterisk {
     color: red; }

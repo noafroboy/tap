@@ -21,3 +21,6 @@ body {
       background-color: white;
       background-image: url(https://lh3.googleusercontent.com/uSCqRw7eWyC2iAhh36bi1ifS2h9YdzEJdtMcQ_KE1uBYuQyqf94jYS5UeofNZBs1jTyVdc-Mu7aoNgZrsYNmkFc=s0);
       background-repeat: no-repeat; }
+  body #container #content {
+    width: 740px;
+    margin: 0 auto; }

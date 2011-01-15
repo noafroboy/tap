@@ -1,7 +1,4 @@
-#login-text {
-  width: 740px;
+body #container #content #login-text {
   margin: 10px auto; }
-
-#new_user_session {
-  width: 740px;
+body #container #content #new_user_session {
   margin: 0 auto; }

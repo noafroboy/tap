@@ -1,13 +1,9 @@
 %p
-  %b Name:
+  %h2 Welcome
   = @user.first_name
 
 - if @controller.logged_in_as_admin?
-  .hello you are an admin fool
-  
-  
-= link_to 'Edit', edit_user_path(@user)
-\|
-= link_to 'Back', users_path
-
-
+  .hello You are an admin fool...
+  = link_to 'View/Edit Tap Members', users_path
+- else
+  .hello You are a regular member... what content should be placed here?

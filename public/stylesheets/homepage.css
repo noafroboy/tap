@@ -1,5 +1,4 @@
-#homepage {
-  width: 740px;
+body #container #content #homepage {
   margin: 10px auto; }
-  #homepage #homepage-text {
+  body #container #content #homepage #homepage-text {
     text-align: center; }
