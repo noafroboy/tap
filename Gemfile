@@ -15,26 +15,17 @@ gem "flutie"
 gem "dynamic_form"
 gem "authlogic"
 gem "taps"
+gem 'active_merchant'
 
-# http://blog.davidchelimsky.net/2010/07/11/rspec-rails-2-generators-and-rake-tasks/
 group :development, :test do
-  gem "rspec-rails", "~> 2.0.0"
-  gem "ruby-debug19", :platforms => :mri_19
-end
-
-group :test do
+  gem "rspec"
+  gem "mocha"
+  gem "rspec-rails"
+  gem "ruby-debug"
   gem 'faker'
-  gem "cucumber-rails"
   gem "factory_girl_rails"
-  gem "bourne"
-  gem "capybara"
-  gem "database_cleaner"
-  gem "fakeweb"
-  gem "nokogiri"
-  gem "timecop"
-  gem "treetop"
-  gem "shoulda"
-  gem "launchy"
-  gem "akephalos", :git => "git://github.com/thoughtbot/akephalos.git"
-  gem "thin"
+  gem "autotest"
+  gem 'awesome_print', :require => "ap"
+  gem 'autotest-growl', :require => 'autotest/growl'
+  gem 'autotest-rails-pure'
 end
