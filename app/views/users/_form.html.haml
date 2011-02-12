@@ -89,7 +89,7 @@
     = f.text_field :title_position_function
   .field
     .label-container= f.label "Years of Experience In Your Field"
-    = f.select :years_experience, ["", "0-2", "3-5", "6-8", "9+"]
+    = f.select :years_experience, options_for_select(["0-2", "3-5", "6-8", "9+"], @user.years_experience), {:include_blank => ""}
   .field
     .label-container= f.label "What areas of TAP are you interested in getting involved with?"
     .areas-of-interest
@@ -115,17 +115,22 @@
     = f.text_field :other_community_organizations
   .field
     .label-container= f.label "Interested in becoming a mentor?"
-    = f.select :potential_mentor, ["", "Yes", "No"]
+    = f.select :potential_mentor, options_for_select([["Yes", true], ["No", false]], @user.potential_mentor), {:include_blank => ""}
   .field
     .label-container= f.label "Interested in becoming a mentee?"
-    = f.select :potential_mentee, ["", "Yes", "No"]
+    = f.select :potential_mentee, options_for_select([["Yes", true], ["No", false]], @user.potential_mentee), {:include_blank => ""}
   .field
     .label-container= f.label "Interested in helping with college workshops and career panels?"
-    = f.select :help_at_workshops_panels, ["", "Yes", "No"]
+    = f.select :help_at_workshops_panels, options_for_select([["Yes", true], ["No", false]], @user.help_at_workshops_panels), {:include_blank => ""}
   .field
     .label-container
       = f.label "The following information will be included in the Networking Directory: Name, Email, Schools Attended, Work Industry, Company Name, and Postion. Do you want to be in the directory?"
       %span.red-asterisk *
-    = f.select :opt_in_directory, ["Yes, add me - I'd like to network with other TAP members!", "No - I do not wish to be included in the directory..."]
+    = f.select :opt_in_directory,                                             |
+      options_for_select([                                                    |
+        ["Yes, add me - I'd like to network with other TAP members!", true],  |
+        ["No - I do not wish to be included in the directory...", false]      |
+      ], @user.opt_in_directory),                                             |
+      {:include_blank => ""}                                                  |
   .actions
     = f.submit 'Save'
