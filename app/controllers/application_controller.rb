@@ -13,14 +13,14 @@ class ApplicationController < ActionController::Base
       return @current_user if defined?(@current_user)
       @current_user = current_user_session && current_user_session.user
     end
-    
+
     def logged_in_as_admin?
       if defined? @current_user
         return @current_user.is_admin
       end
       return false
     end
-    
+
     def require_admin
       unless logged_in_as_admin?
         flash[:notice] = "You must be an admin to view this page"
@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
         return false
       end
     end
-    
+
     def require_user
       unless current_user
         store_location
