@@ -131,7 +131,8 @@
     = f.select :help_at_workshops_panels, options_for_select([["Yes", true], ["No", false]], @user.help_at_workshops_panels), {:include_blank => ""}
   .field
     .label-container
-      The following information will be included in the Networking Directory: Name, Email, Schools Attended, Work Industry, Company Name, and Position. Do you want to be in the directory?
+      The following information will be included in the Networking Directory: Name, Email, Schools Attended, Work Industry, Company Name, and Position.
+      <br>Do you want to be in the directory?
       %span.red-asterisk *
     = f.select :opt_in_directory,                                             |
       options_for_select([                                                    |
@@ -141,3 +142,4 @@
       {:include_blank => ""}                                                  |
   .actions
     = f.submit 'Save'
+    = link_to 'Back', :back if @controller.params[:action] == 'edit'

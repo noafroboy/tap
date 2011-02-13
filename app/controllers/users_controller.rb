@@ -28,6 +28,10 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if (@user != current_user) && !logged_in_as_admin?
+      flash[:notice] = "You are not allowed to see another user's info :)"
+      redirect_to edit_user_url(:id => current_user.id)
+    end
   end
 
   def create

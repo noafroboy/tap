@@ -1,11 +1,14 @@
 body
   background-color: white
   #container
+    min-width: 960px
+    width: 950px
+    margin: 0px auto 0px auto
     #header
-      width: 740px
       overflow: hidden
-      margin: 0 auto
-      background: #F6EFC2
+      margin: 0px auto 30px auto
+      background-image: url(http://www.mint.com/images/rd/global/bg_gradient.png)
+      background-repeat: repeat-x
       border-color: #C6D880
       #logo
         float: left
@@ -16,20 +19,29 @@ body
         width: 400px
         text-align: right
       #masthead
-        width: 740px
+        margin: 10px auto
         float: left
-        height: 185px
-        background-color: white
-        background-image: url(https://lh3.googleusercontent.com/uSCqRw7eWyC2iAhh36bi1ifS2h9YdzEJdtMcQ_KE1uBYuQyqf94jYS5UeofNZBs1jTyVdc-Mu7aoNgZrsYNmkFc=s0)
-        background-repeat: no-repeat
+        width: 950px
+        h1
+          text-align: center
+        h2
+          text-align: center
     #content
-      width: 740px
       margin: 0 auto
       .field
         margin: 5px 0px
       form
+        margin: 0 auto
+        label
+          display: inline
+        .field_with_errors
+          display: inline
+        .red-asterisk
+          color: red
         .field
           font-weight: bold
+        .actions
+          margin: 20px 0px 0px 0px
       .content-description
         border-bottom: 1px solid #D5DEDF
         margin: 40px 0px 20px 0px

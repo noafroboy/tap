@@ -9,7 +9,7 @@ Tap::Application.routes.draw do |map|
   post   'login'  => 'user_sessions#create',  :as => :login
   delete 'logout' => 'user_sessions#destroy', :as => :logout
 
-  root :to => 'home#index' 
+  root :to => 'user_sessions#new' 
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
