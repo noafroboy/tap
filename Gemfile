@@ -16,6 +16,7 @@ gem "dynamic_form"
 gem "authlogic"
 gem "taps"
 gem 'active_merchant'
+gem 'hassle', :git => 'git://github.com/Papipo/hassle.git'
 
 group :development, :test do
   gem "rspec"

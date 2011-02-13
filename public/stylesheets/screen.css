@@ -1,28 +1,47 @@
 body {
   background-color: white; }
-  body #container #header {
-    width: 740px;
-    overflow: hidden;
-    margin: 0 auto;
-    background: #f6efc2;
-    border-color: #c6d880; }
-    body #container #header #logo {
-      float: left;
-      width: 300px;
-      bottom: 0px; }
-    body #container #header #welcome {
-      float: right;
-      width: 400px;
-      text-align: right; }
-    body #container #header #masthead {
-      width: 740px;
-      float: left;
-      height: 185px;
-      background-color: white;
-      background-image: url(https://lh3.googleusercontent.com/uSCqRw7eWyC2iAhh36bi1ifS2h9YdzEJdtMcQ_KE1uBYuQyqf94jYS5UeofNZBs1jTyVdc-Mu7aoNgZrsYNmkFc=s0);
-      background-repeat: no-repeat; }
-  body #container #content {
-    width: 740px;
-    margin: 0 auto; }
-    body #container #content .field {
-      margin: 5px 0px; }
+  body #container {
+    min-width: 960px;
+    width: 950px;
+    margin: 0px auto 0px auto; }
+    body #container #header {
+      overflow: hidden;
+      margin: 0px auto 30px auto;
+      background-image: url(http://www.mint.com/images/rd/global/bg_gradient.png);
+      background-repeat: repeat-x;
+      border-color: #c6d880; }
+      body #container #header #logo {
+        float: left;
+        width: 300px;
+        bottom: 0px; }
+      body #container #header #welcome {
+        float: right;
+        width: 400px;
+        text-align: right; }
+      body #container #header #masthead {
+        margin: 10px auto;
+        float: left;
+        width: 950px; }
+        body #container #header #masthead h1 {
+          text-align: center; }
+        body #container #header #masthead h2 {
+          text-align: center; }
+    body #container #content {
+      margin: 0 auto; }
+      body #container #content .field {
+        margin: 5px 0px; }
+      body #container #content form {
+        margin: 0 auto; }
+        body #container #content form label {
+          display: inline; }
+        body #container #content form .field_with_errors {
+          display: inline; }
+        body #container #content form .red-asterisk {
+          color: red; }
+        body #container #content form .field {
+          font-weight: bold; }
+        body #container #content form .actions {
+          margin: 20px 0px 0px 0px; }
+      body #container #content .content-description {
+        border-bottom: 1px solid #d5dedf;
+        margin: 40px 0px 20px 0px; }
