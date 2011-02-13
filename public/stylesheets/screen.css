@@ -24,3 +24,5 @@ body {
   body #container #content {
     width: 740px;
     margin: 0 auto; }
+    body #container #content .field {
+      margin: 5px 0px; }

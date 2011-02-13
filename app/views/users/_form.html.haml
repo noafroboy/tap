@@ -1,3 +1,10 @@
+:javascript
+  $(document).ready(function() {
+    if ("#{@controller.params[:action]}" === 'edit') {
+      $(".red-asterisk").hide();
+    }
+  });
+  
 = form_for @user do |f|
   -if @user.errors.any?
     #errorExplanation
@@ -5,7 +12,6 @@
       %ul
         - @user.errors.full_messages.each do |msg|
           %li= msg
-  
   .field
     .label-container
       = f.label "email"
@@ -43,7 +49,9 @@
     .label-container= f.label :age_group
     = f.select :age_group, ["", "18-21", "22-25", "26-30", "31-35", "36-40", "41+"]
   .field
-    .label-container= f.label :cellphone_number
+    .label-container
+      Cell Phone #
+      %span{:style => "font-size: 90%"} (e.g. 408-621-2054)
     = f.text_field :cellphone_number
   .field
     .label-container= f.label :home_phone_number
@@ -79,52 +87,52 @@
     .label-container= f.label :other_degrees
     = f.text_field :other_degrees
   .field
-    .label-container= f.label "What Industry/Field are you in?"
+    .label-container What Industry/Field are you in?
     = f.text_field :industry_field
   .field
-    .label-container= f.label "Name of Company you work for?"
+    .label-container Name of Company you work for?
     = f.text_field :company_name
   .field
-    .label-container= f.label "What's your Title/Position/Job Function"
+    .label-container What's your Title/Position/Job Function
     = f.text_field :title_position_function
   .field
-    .label-container= f.label "Years of Experience In Your Field"
+    .label-container Years of Experience In Your Field
     = f.select :years_experience, options_for_select(["0-2", "3-5", "6-8", "9+"], @user.years_experience), {:include_blank => ""}
   .field
-    .label-container= f.label "What areas of TAP are you interested in getting involved with?"
+    .label-container What areas of TAP are you interested in getting involved with?
     .areas-of-interest
-      %input.interest#community-service{ :type=>"checkbox", :name => "Community Service", :value => 1 }Community Service
+      %input.interest#community-service{ :type=>"checkbox", :name => "Community Service", :checked => @user.has_interest?("Community Service") }Community Service
     .areas-of-interest
-      %input.interest#cultural{ :type=>"checkbox", :name => "Cultural", :value => 1 }Cultural
+      %input.interest#cultural{ :type=>"checkbox", :name => "Cultural", :checked => @user.has_interest?('Cultural') }Cultural
     .areas-of-interest
-      %input.interest#dinner-group{ :type=>"checkbox", :name => "Dinner Group", :value => 1 }Dinner Group
+      %input.interest#dinner-group{ :type=>"checkbox", :name => "Dinner Group", :checked => @user.has_interest?('Dinner Group') }Dinner Group
     .areas-of-interest
-      %input.interest#leadership{ :type=>"checkbox", :name => "Leadership", :value => 1 }Leadership
+      %input.interest#leadership{ :type=>"checkbox", :name => "Leadership", :checked => @user.has_interest?('Leadership') }Leadership
     .areas-of-interest
-      %input.interest#professional{ :type=>"checkbox", :name => "Professional", :value => 1 }Professional
+      %input.interest#professional{ :type=>"checkbox", :name => "Professional", :checked => @user.has_interest?('Professional') }Professional
     .areas-of-interest
-      %input.interest#social{ :type=>"checkbox", :name => "Social", :value => 1 }Social
+      %input.interest#social{ :type=>"checkbox", :name => "Social", :checked => @user.has_interest?('Social') }Social
     .areas-of-interest
-      %input.interest#other{ :type=>"checkbox", :name => "Other", :value => 1 }Other:
-      %input.interest-text{ :type => "text", :name => "Areas of Interest"}
+      %input.interest#other{ :type=>"checkbox", :checked => (!@user.other_interests.nil? && !@user.other_interests.blank?) }Other:
+      %input.interest-text{ :type => "text", :name => "Areas of Interest", :value => "#{@user.other_interests}"}
   .field{ :style => "display: none"}
     .label-container= f.label "areas of interest test"
     = f.text_field :areas_of_interest
   .field
-    .label-container= f.label "What other community organizations are you a member of?"
+    .label-container What other community organizations are you a member of?
     = f.text_field :other_community_organizations
   .field
-    .label-container= f.label "Interested in becoming a mentor?"
+    .label-container Interested in becoming a mentor?
     = f.select :potential_mentor, options_for_select([["Yes", true], ["No", false]], @user.potential_mentor), {:include_blank => ""}
   .field
-    .label-container= f.label "Interested in becoming a mentee?"
+    .label-container Interested in becoming a mentee?
     = f.select :potential_mentee, options_for_select([["Yes", true], ["No", false]], @user.potential_mentee), {:include_blank => ""}
   .field
-    .label-container= f.label "Interested in helping with college workshops and career panels?"
+    .label-container Interested in helping with college workshops and career panels?
     = f.select :help_at_workshops_panels, options_for_select([["Yes", true], ["No", false]], @user.help_at_workshops_panels), {:include_blank => ""}
   .field
     .label-container
-      = f.label "The following information will be included in the Networking Directory: Name, Email, Schools Attended, Work Industry, Company Name, and Postion. Do you want to be in the directory?"
+      The following information will be included in the Networking Directory: Name, Email, Schools Attended, Work Industry, Company Name, and Position. Do you want to be in the directory?
       %span.red-asterisk *
     = f.select :opt_in_directory,                                             |
       options_for_select([                                                    |
