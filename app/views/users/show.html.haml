@@ -6,9 +6,12 @@
 - if @controller.logged_in_as_admin?
   .hello This is a special page for administrators upon login.
   %br
-  = link_to 'View/Edit Tap Members', users_path
+  = link_to 'View/Edit Members', users_path
+  (only admins can see this)
 - else
   .hello This is the normal page for regular users upon login.
   
 %p
-  %h4 I was thinking of placing the WordPress site right in here.
+  %h4 
+    I'm guessing I will redirect regular members to the WordPress. 
+    %br For admins/officers, I'll direct them to the page to view/edit/query members.

@@ -2,11 +2,11 @@ body {
   background-color: white; }
   body #container {
     min-width: 960px;
-    width: 950px;
+    width: 960px;
     margin: 0px auto 0px auto; }
     body #container #header {
       overflow: hidden;
-      margin: 0px auto 30px auto;
+      margin: 0px auto 40px auto;
       background-image: url(http://www.mint.com/images/rd/global/bg_gradient.png);
       background-repeat: repeat-x;
       border-color: #c6d880; }
@@ -19,7 +19,7 @@ body {
         width: 400px;
         text-align: right; }
       body #container #header #masthead {
-        margin: 10px auto;
+        margin: 20px auto;
         float: left;
         width: 950px; }
         body #container #header #masthead h1 {

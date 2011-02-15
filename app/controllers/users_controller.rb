@@ -34,6 +34,7 @@ class UsersController < ApplicationController
     end
   end
 
+#TODO TEST THIS SHIT
   def create
     user_params = params[:user]
     user_params.delete(:is_admin)
@@ -53,6 +54,7 @@ class UsersController < ApplicationController
     end
   end
 
+#TODO TEST THIS SHIT
   def update
     user_params = params[:user]
     user_params.delete(:is_admin)
