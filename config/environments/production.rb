@@ -54,6 +54,6 @@ Tap::Application.configure do
     :address          => "smtp.gmail.com",
     :authentication   => :login,
     :user_name        => "tapsf.mailer",
-    :password         => "tapsf2011"
+    :password         => ENV['EMAIL_PASSWORD']
   }
 end
