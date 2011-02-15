@@ -24,5 +24,13 @@ Tap::Application.configure do
   config.action_dispatch.best_standards_support = :builtin
 
   config.action_mailer.default_url_options = { :host => 'tap.local' }
+  
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    :address          => "smtp.gmail.com",
+    :authentication   => :login,
+    :user_name        => "tapsf.mailer",
+    :password         => ""
+  }
 end
 
