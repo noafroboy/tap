@@ -36,6 +36,8 @@ class UsersController < ApplicationController
 
   def create
     user_params = params[:user]
+    user_params.delete(:is_admin)
+    
     @user = User.new(user_params)
     @user.zip_code = user_params["zip_code"].nil? ? nil : user_params["zip_code"].to_i
     
@@ -53,10 +55,14 @@ class UsersController < ApplicationController
 
   def update
     user_params = params[:user]
+    user_params.delete(:is_admin)
+    
     respond_to do |format|
-      if current_user.update_attributes(user_params)
+      user = User.find(params[:id])
+      if impersonating_user && user.update_attributes(user_params)
+        format.html { redirect_to(users_path, :notice => "#{user.first_name}\'s profile was successfully updated.") }
+      elsif current_user.update_attributes(user_params)
         format.html { redirect_to(current_user, :notice => 'User was successfully updated.') }
-        format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
       end
@@ -71,5 +77,11 @@ class UsersController < ApplicationController
         format.html { redirect_to(users_url) }
         format.xml  { head :ok }
     end
+  end
+  
+  private
+  
+  def impersonating_user
+    logged_in_as_admin? && (params[:id] != current_user.id)
   end
 end
