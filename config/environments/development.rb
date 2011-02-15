@@ -30,7 +30,7 @@ Tap::Application.configure do
     :address          => "smtp.gmail.com",
     :authentication   => :login,
     :user_name        => "tapsf.mailer",
-    :password         => ""
+    :password         => "tapsf2011"
   }
 end
 
