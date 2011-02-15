@@ -1,9 +1,14 @@
-%p
-  %h2 Welcome
-  = @user.first_name
+
+%h2 
+  Welcome
+  =@user.first_name
 
 - if @controller.logged_in_as_admin?
-  .hello You are an admin fool...
+  .hello This is a special page for administrators upon login.
+  %br
   = link_to 'View/Edit Tap Members', users_path
 - else
-  .hello You are a regular member... what content should be placed here?
+  .hello This is the normal page for regular users upon login.
+  
+%p
+  %h4 I was thinking of placing the WordPress site right in here.

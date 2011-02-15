@@ -2,17 +2,21 @@
 
 %table
   %tr
-    %th Name
-    %th
+    %th First Name
+    %th Last Name
+    %th Email
+    %th Admin?
     %th
     %th
 
   - @users.each do |user|
     %tr
       %td= user.first_name
-      %td= link_to 'Show', user
-      %td= link_to 'Edit', edit_user_path(user)
-      %td= button_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
+      %td= user.last_name
+      %td= user.email
+      %td= user.is_admin
+      %td= link_to 'Profile', edit_user_path(user)
+      %td= button_to 'Delete User', user, :confirm => 'Are you sure?', :method => :delete
 
 %br
 
