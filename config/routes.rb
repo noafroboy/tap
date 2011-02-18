@@ -9,6 +9,9 @@ Tap::Application.routes.draw do |map|
   post   'login'  => 'user_sessions#create',  :as => :login
   delete 'logout' => 'user_sessions#destroy', :as => :logout
 
+  post 'users/toggle_paid' => 'users#toggle_paid', :as => :toggle_paid
+  post 'users/toggle_admin' => 'users#toggle_admin', :as => :toggle_admin
+
   root :to => 'home#index' 
   
   # The priority is based upon order of creation:
@@ -23,7 +26,7 @@ Tap::Application.routes.draw do |map|
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+    # resources :users
 
   # Sample resource route with options:
   #   resources :products do

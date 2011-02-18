@@ -33,6 +33,24 @@ class UsersController < ApplicationController
       redirect_to edit_user_url(:id => current_user.id)
     end
   end
+  
+  def toggle_paid
+    if logged_in_as_admin?
+      @user = User.find(params[:userId])
+      @user.paid = params[:checked]
+      @user.save
+    end
+    render :nothing => true
+  end
+  
+  def toggle_admin
+    @user = User.find(params[:userId])
+    if logged_in_as_admin? && @user != current_user
+      @user.is_admin = params[:checked]
+      @user.save
+    end
+    render :nothing => true
+  end
 
 #TODO TEST THIS SHIT
   def create

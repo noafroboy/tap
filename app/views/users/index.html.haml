@@ -1,4 +1,27 @@
+:javascript
+  $(document).ready(function(){
+    $('.user-paid').click(function() {
+      var userId = this.id.split('-')[1];
+      $.ajax({
+        type: 'POST',
+        url: 'users/toggle_paid',
+        data: { userId: userId, checked: this.checked }
+      });
+    });
+    
+    $('.user-is-admin').click(function() {
+      var userId = this.id.split('-')[1];
+      $.ajax({
+        type: 'POST',
+        url: 'users/toggle_admin',
+        data: { userId: userId, checked: this.checked }
+      });
+    });
+  });
+
+
 %h1 Registered Members
+%br/
 
 %table
   %tr
@@ -6,7 +29,7 @@
     %th Last Name
     %th Email
     %th Admin?
-    %th
+    %th Paid?
     %th
 
   - @users.each do |user|
@@ -14,9 +37,12 @@
       %td= user.first_name
       %td= user.last_name
       %td= user.email
-      %td= user.is_admin
+      %td
+        %input.user-is-admin{ :id => "user-#{user.id}", :type => "checkbox", :checked => user.is_admin }
+      %td
+        %input.user-paid{ :id => "user-#{user.id}", :type => "checkbox", :checked => user.paid }
       %td= link_to 'Profile', edit_user_path(user)
-      %td= button_to 'Delete User', user, :confirm => 'Are you sure?', :method => :delete
+      %td= button_to 'Delete User', user, :confirm => 'Are you absolutely sure?', :method => :delete
 
 %br
 
