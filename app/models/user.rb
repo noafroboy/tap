@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
-  acts_as_authentic
+  acts_as_authentic do |c|
+    c.login_field = 'email'
+  end
+  
   validates_presence_of :first_name, :last_name, :gender, :email, :password, :on => :create
 
   def has_interest?(interest)
