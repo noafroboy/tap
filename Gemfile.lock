@@ -53,7 +53,6 @@ GEM
       railties (>= 3.0.0)
     faker (0.9.5)
       i18n (~> 0.4)
-    flutie (1.1.5)
     formtastic (1.2.3)
       actionpack (>= 2.3.7)
       activesupport (>= 2.3.7)
@@ -152,7 +151,6 @@ DEPENDENCIES
   dynamic_form
   factory_girl_rails
   faker
-  flutie
   formtastic
   haml
   high_voltage
