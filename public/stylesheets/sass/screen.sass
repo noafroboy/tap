@@ -32,16 +32,60 @@ body
         margin: 5px 0px
       form
         margin: 0 auto
-        label
-          display: inline
+        .contact-form
+          overflow: hidden
+          float: left
+          width: 50%
+          .floaters
+            float: left
+            clear: left
+            width: 250px
+            text-align: right
+            .label
+              padding: 7px 5px 5px 0px
+            .red-asterisk
+              margin: 0px 5px
+              padding: 7px 0px 7px 0px
+              float: right
+              color: red
+        .education-form, .experience-form
+          overflow: hidden
+          float: left
+          width: 50%
+          label  
+            width: 250px
+            text-align: right
+            padding: 7px 5px 5px 0px
+            float: left
+        .additional-information-form
+          overflow: hidden
+          .floaters
+            label
+              float: left
+            .double-floaters
+              margin-top: 7px
+              float: left
+          label  
+            width: 450px
+            text-align: right
+            margin-left: 50px
+            padding: 7px 5px 5px 0px
+            float: left
+            clear: left
+        .form-title
+          margin-top: 20px
+          font-size: 120%
+          color: #005F63
         .field_with_errors
           display: inline
-        .red-asterisk
-          color: red
         .field
+          font-family: Lucida Grande, Arial, Helvetica, sans-serif
           font-weight: bold
+          clear: both
         .actions
           margin: 20px 0px 0px 0px
+        input[type="text"], input[type="password"]
+          width: 150px
       .content-description
         border-bottom: 1px solid #D5DEDF
         margin: 40px 0px 20px 0px

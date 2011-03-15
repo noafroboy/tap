@@ -58,7 +58,6 @@ class UsersController < ApplicationController
     user_params.delete(:is_admin)
     
     @user = User.new(user_params)
-    @user.zip_code = user_params["zip_code"].nil? ? nil : user_params["zip_code"].to_i
     
     respond_to do |format|
       if @user.save

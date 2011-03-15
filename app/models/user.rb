@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
     c.login_field = 'email'
   end
   
-  validates_presence_of :first_name, :last_name, :gender, :email, :password, :on => :create
+  validates_presence_of :first_name, :last_name, :gender, :email, :password, :primary_phone_number, :on => :create
 
   def has_interest?(interest)
     (self.areas_of_interest || "").split(',').include?(interest)

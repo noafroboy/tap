@@ -32,16 +32,59 @@ body {
         margin: 5px 0px; }
       body #container #content form {
         margin: 0 auto; }
-        body #container #content form label {
-          display: inline; }
+        body #container #content form .contact-form {
+          overflow: hidden;
+          float: left;
+          width: 50%; }
+          body #container #content form .contact-form .floaters {
+            float: left;
+            clear: left;
+            width: 250px;
+            text-align: right; }
+            body #container #content form .contact-form .floaters .label {
+              padding: 7px 5px 5px 0px; }
+            body #container #content form .contact-form .floaters .red-asterisk {
+              margin: 0px 5px;
+              padding: 7px 0px 7px 0px;
+              float: right;
+              color: red; }
+        body #container #content form .education-form, body #container #content form .experience-form {
+          overflow: hidden;
+          float: left;
+          width: 50%; }
+          body #container #content form .education-form label, body #container #content form .experience-form label {
+            width: 250px;
+            text-align: right;
+            padding: 7px 5px 5px 0px;
+            float: left; }
+        body #container #content form .additional-information-form {
+          overflow: hidden; }
+          body #container #content form .additional-information-form .floaters label {
+            float: left; }
+          body #container #content form .additional-information-form .floaters .double-floaters {
+            margin-top: 7px;
+            float: left; }
+          body #container #content form .additional-information-form label {
+            width: 450px;
+            text-align: right;
+            margin-left: 50px;
+            padding: 7px 5px 5px 0px;
+            float: left;
+            clear: left; }
+        body #container #content form .form-title {
+          margin-top: 20px;
+          font-size: 120%;
+          color: #005f63; }
         body #container #content form .field_with_errors {
           display: inline; }
-        body #container #content form .red-asterisk {
-          color: red; }
         body #container #content form .field {
-          font-weight: bold; }
+          font-family: Lucida Grande, Arial, Helvetica, sans-serif;
+          font-weight: bold;
+          clear: both; }
         body #container #content form .actions {
           margin: 20px 0px 0px 0px; }
+        body #container #content form input[type="text"], body #container #content form input[type="password"] {
+          width: 150px; }
       body #container #content .content-description {
         border-bottom: 1px solid #d5dedf;
         margin: 40px 0px 20px 0px; }

@@ -1,10 +1,9 @@
 :javascript
   $(document).ready(function() {
     if ("#{@controller.params[:action]}" === 'edit') {
-      $(".red-asterisk").hide();
+      / $(".red-asterisk").hide();
     }
   });
-  
 = form_for @user do |f|
   -if @user.errors.any?
     #errorExplanation
@@ -12,134 +11,143 @@
       %ul
         - @user.errors.full_messages.each do |msg|
           %li= msg
-  .field
-    .label-container
-      Email
-      %span.red-asterisk *(this will be used for your login)
-    = f.text_field :email
-  .field
-    .label-container
-      Password
-      %span.red-asterisk *
-    = f.password_field :password
-  .field
-    .label-container
-      Password Confirmation
-      %span.red-asterisk *
-    = f.password_field :password_confirmation
-  .field
-    .label-container
-      First Name
-      %span.red-asterisk *
-    = f.text_field :first_name
-  .field
-    .label-container Middle Name
-    = f.text_field :middle_name
-  .field
-    .label-container
-      Last Name
-      %span.red-asterisk *
-    = f.text_field :last_name
-  .field
-    .label-container
-      Gender
-      %span.red-asterisk *
-    = f.select :gender, ["male", "female"]
-  .field
-    .label-container Age Group
-    = f.select :age_group, ["", "18-21", "22-25", "26-30", "31-35", "36-40", "41+"]
-  .field
-    .label-container
-      Cell Phone #
-      %span{:style => "font-size: 90%"} (e.g. 408-621-2054)
-    = f.text_field :cellphone_number
-  .field
-    .label-container Home Phone #
-    = f.text_field :homephone_number
-  .field
-    .label-container Work Phone #
-    = f.text_field :workphone_number
-  .field
-    .label-container Street Address
-    = f.text_field :street_address
-  .field
-    .label-container City
-    = f.text_field :city
-  .field
-    .label-container State
-    = f.text_field :state
-  .field
-    .label-container Zip Code
-    = f.text_field :zip_code
-  .field
-    .label-container Undergraduate School
-    = f.text_field :undergrad_school
-  .field
-    .label-container Undergraduate Major
-    = f.text_field :undergrad_major
-  .field
-    .label-container Graduate School
-    = f.text_field :graduate_school
-  .field
-    .label-container Graduate Major
-    = f.text_field :graduate_major
-  .field
-    .label-container Other Degrees
-    = f.text_field :other_degrees
-  .field
-    .label-container What Industry/Field are you in?
-    = f.text_field :industry_field
-  .field
-    .label-container Name of Company you work for?
-    = f.text_field :company_name
-  .field
-    .label-container What's your Title/Position/Job Function
-    = f.text_field :title_position_function
-  .field
-    .label-container Years of Experience In Your Field
-    = f.select :years_experience, options_for_select(["0-2", "3-5", "6-8", "9+"], @user.years_experience), {:include_blank => ""}
-  .field
-    .label-container What areas of TAP are you interested in getting involved with?
-    .areas-of-interest
-      %input.interest#community-service{ :type=>"checkbox", :name => "Community Service", :checked => @user.has_interest?("Community Service") }Community Service
-    .areas-of-interest
-      %input.interest#cultural{ :type=>"checkbox", :name => "Cultural", :checked => @user.has_interest?('Cultural') }Cultural
-    .areas-of-interest
-      %input.interest#dinner-group{ :type=>"checkbox", :name => "Dinner Group", :checked => @user.has_interest?('Dinner Group') }Dinner Group
-    .areas-of-interest
-      %input.interest#leadership{ :type=>"checkbox", :name => "Leadership", :checked => @user.has_interest?('Leadership') }Leadership
-    .areas-of-interest
-      %input.interest#professional{ :type=>"checkbox", :name => "Professional", :checked => @user.has_interest?('Professional') }Professional
-    .areas-of-interest
-      %input.interest#social{ :type=>"checkbox", :name => "Social", :checked => @user.has_interest?('Social') }Social
-    .areas-of-interest
-      %input.interest#other{ :type=>"checkbox", :checked => (!@user.other_interests.nil? && !@user.other_interests.blank?) }Other:
-      %input.interest-text{ :type => "text", :name => "Areas of Interest", :value => "#{@user.other_interests}"}
-  .field{ :style => "display: none"}
-    = f.text_field :areas_of_interest
-  .field
-    .label-container What other community organizations are you a member of?
-    = f.text_field :other_community_organizations
-  .field
-    .label-container Interested in becoming a mentor?
-    = f.select :potential_mentor, options_for_select([["Yes", true], ["No", false]], @user.potential_mentor), {:include_blank => ""}
-  .field
-    .label-container Interested in becoming a mentee?
-    = f.select :potential_mentee, options_for_select([["Yes", true], ["No", false]], @user.potential_mentee), {:include_blank => ""}
-  .field
-    .label-container Interested in helping with college workshops and career panels?
-    = f.select :help_at_workshops_panels, options_for_select([["Yes", true], ["No", false]], @user.help_at_workshops_panels), {:include_blank => ""}
-  .field
-    .label-container
-      The following information will be included in the Networking Directory: Name, Email, Schools Attended, Work Industry, Company Name, and Position.
-      <br>Do you want to be in the directory?
-      %span.red-asterisk *
-    = f.select :opt_in_directory,                                             |
-      options_for_select([                                                    |
-        ["Yes, add me - I'd like to network with other TAP members!", true],  |
-        ["No - I do not wish to be included in the directory...", false]      |
-      ], @user.opt_in_directory),                                             |
-      {:include_blank => ""}                                                  |
+  .contact-form
+    %h2.form-title CONTACT INFORMATION
+    .field
+      .floaters
+        .red-asterisk *(used for your login)
+        .label Email
+      = f.text_field :email
+    .field      
+      .floaters
+        .red-asterisk *
+        .label Password
+      = f.password_field :password
+    .field   
+      .floaters
+        .red-asterisk *
+        .label Password Confirmation
+      = f.password_field :password_confirmation
+    .field
+      .floaters
+        .red-asterisk *
+        .label First Name
+      = f.text_field :first_name
+    .field
+      .floaters
+        .label Middle Name
+      = f.text_field :middle_name
+    .field
+      .floaters
+        .red-asterisk *
+        .label Last Name
+      = f.text_field :last_name
+    .field
+      .floaters
+        .red-asterisk *
+        .label Gender
+      = f.select :gender, options_for_select(["male", "female"], @user.gender), {:include_blank => ""}
+    .field
+      .floaters
+        .label Age Group
+      = f.select :age_group, options_for_select(["18-21", "22-25", "26-30", "31-35", "36-40", "41+"], @user.age_group), {:include_blank => ""}
+    .field
+      .floaters
+        .red-asterisk{:style => "font-size: 80%"} *(e.g. 408-621-2054)
+        .label Primary Phone #
+      = f.text_field :primary_phone_number
+    .field
+      .floaters
+        .label Mailing Address
+      = f.text_field :street_address
+    .field
+      .floaters
+        .label City
+      = f.text_field :city
+    .field
+      .floaters
+        .label State
+      = f.text_field:state
+    .field
+      .floaters
+        .label Zip Code
+      = f.text_field :zip_code
+  .education-form 
+    %h2.form-title EDUCATIONAL INFORMATION
+    .field
+      %label Undergraduate School
+      = f.text_field :undergrad_school
+    .field
+      %label Undergraduate Major
+      = f.text_field :undergrad_major
+    .field
+      %label Graduate School
+      = f.text_field :graduate_school
+    .field
+      %label Graduate Major
+      = f.text_field :graduate_major
+    .field
+      %label Other Degrees
+      = f.text_field :other_degrees
+  .experience-form
+    %h2.form-title EXPERIENCE
+    .field
+      %label Industry/Field
+      = f.text_field :industry_field
+    .field
+      %label Employer Name
+      = f.text_field :company_name
+    .field
+      %label Title/Position/Job Function
+      = f.text_field :title_position_function
+    .field
+      %label Years of Experience
+      = f.select :years_experience, options_for_select(["0-2", "3-5", "6-8", "9+"], @user.years_experience), {:include_blank => ""}
+  .clear{:style => "clear:both"}
+  .additional-information-form
+    %h2.form-title ADDITIONAL INFORMATION
+    .field
+      .floaters
+        %label What areas of TAP are you interested in getting involved with?
+        .double-floaters
+          .areas-of-interest
+            %input.interest#community-service{ :type=>"checkbox", :name => "Community Service", :checked => @user.has_interest?("Community Service") }Community Service
+          .areas-of-interest
+            %input.interest#cultural{ :type=>"checkbox", :name => "Cultural", :checked => @user.has_interest?('Cultural') }Cultural
+          .areas-of-interest
+            %input.interest#dinner-group{ :type=>"checkbox", :name => "Dinner Group", :checked => @user.has_interest?('Dinner Group') }Dinner Group
+          .areas-of-interest
+            %input.interest#leadership{ :type=>"checkbox", :name => "Leadership", :checked => @user.has_interest?('Leadership') }Leadership
+          .areas-of-interest
+            %input.interest#professional{ :type=>"checkbox", :name => "Professional", :checked => @user.has_interest?('Professional') }Professional
+          .areas-of-interest
+            %input.interest#social{ :type=>"checkbox", :name => "Social", :checked => @user.has_interest?('Social') }Social
+          .areas-of-interest
+            %input.interest#other{ :type=>"checkbox", :checked => (!@user.other_interests.nil? && !@user.other_interests.blank?) }Other:
+            %input.interest-text{ :type => "text", :name => "Areas of Interest", :value => "#{@user.other_interests}"}
+    .field
+      = f.hidden_field :areas_of_interest
+    .field
+      %label What other community organizations are you a member of?
+      = f.text_field :other_community_organizations
+    .field
+      %label Interested in becoming a mentor?
+      = f.select :potential_mentor, options_for_select([["Yes", true], ["No", false]], @user.potential_mentor), {:include_blank => ""}
+    .field
+      %label Interested in becoming a mentee?
+      = f.select :potential_mentee, options_for_select([["Yes", true], ["No", false]], @user.potential_mentee), {:include_blank => ""}
+    .field
+      %label Interested in helping with college workshops and career panels?
+      = f.select :help_at_workshops_panels, options_for_select([["Yes", true], ["No", false]], @user.help_at_workshops_panels), {:include_blank => ""}
+    .field
+      %label
+        The following information will be included in the Networking Directory: Name, Email, Schools Attended, Work Industry, Company Name, and Position. Do you want to be in the directory?
+      = f.select :opt_in_directory,                                             |
+        options_for_select([                                                    |
+          ["Yes, add me - I'd like to network with other TAP members!", true],  |
+          ["No - I do not wish to be included in the directory...", false]      |
+        ], @user.opt_in_directory),                                             |
+        {:include_blank => ""}                                                  |
   .actions
     = f.submit 'Save'
     = link_to 'Back', :back if @controller.params[:action] == 'edit'
