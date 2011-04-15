@@ -1,12 +1,20 @@
 class UsersController < ApplicationController
   before_filter :require_user, :except => [:new, :create]
-  before_filter :require_admin, :only => [:index]
+  before_filter :require_admin, :only => [:index, :export_csv]
 
   def index
     @users = User.all
 
     respond_to do |format|
       format.html # index.html.haml
+    end
+  end
+
+  def export_csv
+    respond_to do |format|
+      format.csv {
+        send_data(User.export_csv, :type => 'text/plain')
+      }
     end
   end
 

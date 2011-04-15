@@ -8,7 +8,7 @@
         data: { userId: userId, checked: this.checked }
       });
     });
-    
+
     $('.user-is-admin').click(function() {
       var userId = this.id.split('-')[1];
       $.ajax({
@@ -47,3 +47,5 @@
 %br
 
 = link_to 'New user', new_user_path
+%br
+= link_to 'Export to CSV', :controller => "users", :action => "export_csv", :format => 'csv'

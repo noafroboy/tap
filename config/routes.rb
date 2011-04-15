@@ -4,6 +4,10 @@ Tap::Application.routes.draw do |map|
 
   resources :users
   resources :home
+
+  map.resource :user, :member => {
+    :export_csv => :get
+  }
   
   get    'login'  => 'user_sessions#new',     :as => :login
   post   'login'  => 'user_sessions#create',  :as => :login

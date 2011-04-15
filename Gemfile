@@ -15,6 +15,7 @@ gem "dynamic_form"
 gem "authlogic"
 gem "taps"
 gem 'active_merchant'
+gem 'fastercsv'
 
 group :development, :test do
   gem "rspec"
